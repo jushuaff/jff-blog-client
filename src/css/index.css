@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --red: #AC1A29;
+    --black: #312F30;
+}
+
+.loading {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-right { text-align: right; }
+.t-gray { color: gray; }
+
+/*------------------------------------------------------------
+Navbar styles
+------------------------------------------------------------*/
+nav {
+    position: fixed !important;
+    width: 100%;
+    flex-direction: column;
+    padding: 0 !important;
+    background-color: white;
+    z-index: 100;
+
+    .nav-top {
+        padding:5px 0;
+        width: 100%;
+        background-color: var(--black);
+    }
+
+    .main-nav {
+        padding: 8px 0;
+        display: flex;
+        width: 100%;
+
+        .nav-con,
+        .nav-con .navbar-nav {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+    }
+
+    .logo { width:60px; }
+}
+
+.banner-section {
+    color: white;
+    min-height: 100vh;
+    padding-top: 102px;
+    background: linear-gradient(90deg, rgba(49,47,48,1) 0%, rgba(172,26,41,0.644782913165266) 100%, rgba(0,212,255,1) 100%, rgba(9,9,121,1) 100%);
+}
+
+
+footer {
+    background-color: var(--black);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold; 
+}
+
+.card {
+    height: 100%;
+}
+
+.cart-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+
+.card-image-con {
+    overflow: hidden;
+    position: relative;
+    height: 250px;
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 5px;
+
+    img { 
+        position: absolute;
+        top:0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        margin: auto;
+        padding: 20px;
+    }
+}

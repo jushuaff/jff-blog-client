@@ -1,0 +1,28 @@
+.banner-section.blog-page{
+    background: white !important;
+    color: black !important;
+
+    .poster-con {
+        border-bottom: 1px solid black;
+        padding-bottom: 15px;
+        margin-bottom: 8px;
+    }
+
+    .image-con {
+        position: relative;
+        height: 20px;
+        width: 20px;
+        border-radius: 50px;
+        border: 1px solid black;
+        margin-right: 5px;
+
+        img {
+            position: absolute;
+            width: 100%;
+        }
+    }
+}
+
+button {
+    border-radius: 50px !important;
+}
