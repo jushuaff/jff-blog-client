@@ -1,5 +1,6 @@
 import { useEffect, useState, useContext } from 'react';
 import { Card, Button, Form, Row, Col } from 'react-bootstrap';
+import { API_BASE_URL } from '../config/api';
 import UserContext from '../context/UserContext';
 
 export default function PostCard({ post, onUpdate, onDelete }) {
@@ -12,7 +13,7 @@ export default function PostCard({ post, onUpdate, onDelete }) {
     useEffect(() => {
         const fetchComments = async () => {
             try {
-                const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/posts/getComments/${post._id}`, {
+                const res = await fetch(`${API_BASE_URL}/posts/getComments/${post._id}`, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`
                     }
@@ -39,7 +40,7 @@ export default function PostCard({ post, onUpdate, onDelete }) {
         }
 
         try {
-            const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/posts/addComment/${post._id}`, {
+            const res = await fetch(`${API_BASE_URL}/posts/addComment/${post._id}`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json",

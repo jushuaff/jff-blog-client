@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from 'react';
 import PostCard from '../components/PostCard';
 import { Row, Col, Form, Button, Container } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from '../config/api';
 import UserContext from '../context/UserContext';
 import Swal from 'sweetalert2';
 import '../css/blog.css';
@@ -16,7 +17,7 @@ export default function Blog() {
     const [validationError, setValidationError] = useState({});
 
     const fetchPosts = () => {
-        fetch(`${process.env.REACT_APP_API_BASE_URL}/posts/`, {
+        fetch(`${API_BASE_URL}/posts/`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
             }
@@ -62,7 +63,7 @@ export default function Blog() {
             imageUrl: ''
         };
 
-        fetch(`${process.env.REACT_APP_API_BASE_URL}/posts/create`, {
+        fetch(`${API_BASE_URL}/posts/create`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -110,7 +111,7 @@ export default function Blog() {
             cancelButtonText: 'Cancel'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`${process.env.REACT_APP_API_BASE_URL}/posts/delete/${id}`, {
+                fetch(`${API_BASE_URL}/posts/delete/${id}`, {
                     method: 'DELETE',
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`

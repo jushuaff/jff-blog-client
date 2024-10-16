@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
 import { Navigate } from 'react-router-dom';
+import { API_BASE_URL } from '../config/api';
 import Swal from 'sweetalert2';
 import UserContext from '../context/UserContext';
 
@@ -34,7 +35,7 @@ export default function Register() {
     function registerUser(e) {
         e.preventDefault();
 
-        fetch(`${process.env.REACT_APP_API_BASE_URL}/users/register`, {
+        fetch(`${API_BASE_URL}/users/register`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"

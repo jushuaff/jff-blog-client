@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { UserProvider } from './context/UserContext';
+import { API_BASE_URL } from './config/api';
 
 import AppNavbar from './components/AppNavbar';
 import Footer from './components/Footer';
@@ -32,7 +33,7 @@ function App() {
 
     useEffect(() => {
         if (token) {
-            fetch(`${process.env.REACT_APP_API_BASE_URL}/users/details`, {
+            fetch(`${API_BASE_URL}/users/details`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

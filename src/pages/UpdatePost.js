@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from '../config/api';
 import Swal from 'sweetalert2';
 
 export default function UpdatePost() {
@@ -14,7 +15,7 @@ export default function UpdatePost() {
 
     // Fetch the existing movie details when the component loads
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_API_BASE_URL}/posts/getPost/${postId}`, {
+        fetch(`${API_BASE_URL}/posts/getPost/${postId}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -56,7 +57,7 @@ export default function UpdatePost() {
     // Handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch(`${process.env.REACT_APP_API_BASE_URL}/posts/update/${postId}`, {
+        fetch(`${API_BASE_URL}/posts/update/${postId}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',

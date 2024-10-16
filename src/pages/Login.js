@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from '../config/api';
 import Swal from 'sweetalert2';
 import UserContext from '../context/UserContext';
 
@@ -16,7 +17,7 @@ export default function Login() {
     async function authenticate(e) {
         e.preventDefault();
         try {
-            const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/users/login`, {
+            const res = await fetch(`${API_BASE_URL}/users/login`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"
@@ -66,7 +67,7 @@ export default function Login() {
 
     const retrieveUserDetails = async (token) => {
         try {
-            const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/users/details`, {
+            const res = await fetch(`${API_BASE_URL}/users/details`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
